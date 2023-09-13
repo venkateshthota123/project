@@ -8,8 +8,8 @@ z=input("enter the youtube link")
 for i in range(breaks):
 
     if type_break.lower()=='m':
-        time.sleep(t)
+        time.sleep(t*60)
         webbrowser.open(z,new=2)
     else:
-        time.sleep(t)
+        time.sleep(t*60*60)
         webbrowser.open(z,new=2)
