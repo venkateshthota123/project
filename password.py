@@ -20,5 +20,5 @@ def random_password(k):
     random.shuffle(password)
     return "".join(password)
 k=int(input("enter the length of password:"))
-print(f"The Random password is {random_password(k)})
+print(f"The Random password is {random_password(k)}")
 
