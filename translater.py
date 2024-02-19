@@ -1,4 +1,3 @@
-from deep_translator import GoogleTranslator
 
 '''
 {'afrikaans': 'af', 'albanian': 'sq', 'amharic': 'am', 
@@ -23,16 +22,46 @@ from deep_translator import GoogleTranslator
 'telugu': 'te', 'thai': 'th', 'tigrinya': 'ti', 'tsonga': 'ts', 'turkish': 'tr', 'turkmen': 'tk', 'twi': 'ak', 'ukrainian': 'uk', 
 'urdu': 'ur', 'uyghur': 'ug', 'uzbek': 'uz', 'vietnamese': 'vi', 'welsh': 'cy', 'xhosa': 'xh', 'yiddish': 'yi', 'yoruba': 'yo', 'zulu': 'zu'}'''
 
-source=input("Enter the source of the language (or) auto : ")
-target=input("enter the target language to convert enter the first 2 letters of: ")
+from tkinter import *
+from deep_translator import GoogleTranslator
 
-t=GoogleTranslator(
-    source=source,
-    target=target
-)
 
-data=input("enter the data to translate :  ")
+def tarnslator():
+    data1=e1.get()
+    data2=e2.get()
+    data=e3.get()
+    t=GoogleTranslator(
+        source=data1,
+        target=data2
+    )
+    r=t.translate(data)
+    gui=Tk()
+    gui.title("translated words")
+    gui.geometry("400x200")
+    lbl=Label(gui,text=r).pack()
+    gui.mainloop()
 
-r=t.translate(data)
-print(r.split(" "))
+
+base=Tk()
+base.geometry("400x300")
+base.title('Translator')
+
+e1=StringVar()
+e2=StringVar()
+e3=StringVar()
+
+
+Label(base,text="enter the language as first 2 letters (or) write as auto").pack(pady=10)
+dataentry=Entry(base,textvariable=e1,width="30").pack()
+
+Label(base,text="enter the required language as first 2 letters to translate ").pack(pady=10)
+dataentry=Entry(base,textvariable=e2,width="30").pack()
+
+Label(base,text="enter the data").pack(pady=10)
+dataentry=Entry(base,textvariable=e3,width="30").pack()
+
+Button=Button(base,text="translate",command=tarnslator,height=1,width=9).pack()
+
+
+base.mainloop()
 
